@@ -3,9 +3,14 @@
 @import './globals';
 
 // import all layout scss files
+@import './layout/BaseLayout';
 @import './layout/NavBar';
 @import './layout/Panel';
 
 // import all shared component scss files
+@import './shared/DetailView';
 @import './shared/Grid';
 @import './shared/GridItem';
+
+// import all page component scss files
+@import './pages/RestaurantDetails';

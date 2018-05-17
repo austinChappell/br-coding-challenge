@@ -5,9 +5,16 @@
   src: url("./assets/fonts/AvenirNext-DemiBold.ttf"); }
 
 body {
+  background-color: #2a2a2a;
   color: #2a2a2a;
   font-family: 'Avenir Next', sans-serif;
   margin: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0; }
+
+.BaseLayout {
+  padding-top: 60px; }
 
 .NavBar {
   align-items: center;
@@ -17,7 +24,12 @@ body {
   display: flex;
   height: 60px;
   justify-content: center;
-  padding: 10px; }
+  left: 0;
+  padding: 10px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2; }
   .NavBar > div {
     flex-basis: 10%; }
     .NavBar > div img {
@@ -31,10 +43,36 @@ body {
   background-color: #2a2a2a;
   color: #ffffff;
   min-height: calc(100vh - 60px);
-  position: absolute;
+  position: fixed;
   transition: 500ms;
   width: 100vw;
   z-index: 1; }
+
+.DetailView {
+  background-color: #ffffff;
+  flex-grow: 1; }
+  .DetailView > * {
+    padding-left: 12px; }
+  .DetailView .header {
+    background-color: #34b379;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    .DetailView .header h1, .DetailView .header h2 {
+      margin: 0; }
+    .DetailView .header h1 {
+      font-size: 16px;
+      margin-bottom: 6px; }
+    .DetailView .header h2 {
+      font-size: 12px; }
+  .DetailView .sub-view {
+    color: #2a2a2a;
+    padding-top: 16px; }
+    .DetailView .sub-view h3 {
+      font-size: 16px; }
+    .DetailView .sub-view > div {
+      margin-bottom: 26px; }
 
 .Grid {
   display: flex;
@@ -66,3 +104,8 @@ body {
     font-size: 12px; }
   .GridItem h1, .GridItem h2 {
     margin: 0 0 6px; }
+
+.RestaurantDetails {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 60px); }

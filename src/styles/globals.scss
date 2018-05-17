@@ -5,7 +5,12 @@
   src: url('./assets/fonts/AvenirNext-DemiBold.ttf');
 }
 body {
+  background-color: $color-black;
   color: $color-black;
   font-family: 'Avenir Next', sans-serif;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
