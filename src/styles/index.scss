@@ -2,5 +2,10 @@
 @import './variables';
 @import './globals';
 
-// import all component scss files
-@import './components/NavBar';
+// import all layout scss files
+@import './layout/NavBar';
+@import './layout/Panel';
+
+// import all shared component scss files
+@import './shared/Grid';
+@import './shared/GridItem';

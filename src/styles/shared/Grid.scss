@@ -1,0 +1,14 @@
+.Grid {
+  display: flex;
+  flex-wrap: wrap;
+  & > * {
+    flex-basis: 100%;
+    height: 180px;
+  }
+  // tablet view
+  @media (min-width: $tablet-min) {
+    & > * {
+      flex-basis: 50%;
+    }
+  }
+}

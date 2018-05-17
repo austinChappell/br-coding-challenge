@@ -5,6 +5,4 @@ const getData = (url, cb) => fetch(url)
     throw err;
   });
 
-export default {
-  getData,
-};
+export { getData };

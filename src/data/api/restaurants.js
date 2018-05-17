@@ -1,10 +1,11 @@
 import { getData } from './';
 import { endpoints } from '../constants';
 
-const { restaurantEndpoint } = endpoints;
+const { restaurantsEndpoint } = endpoints;
 
 const getRestaurants = (cb) => {
-  getData(restaurantEndpoint, cb);
+  console.log('url', restaurantsEndpoint);
+  getData(restaurantsEndpoint, cb);
 };
 
 export default {

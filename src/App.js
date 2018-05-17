@@ -10,9 +10,9 @@ import { Provider } from 'react-redux';
 import store from './data/redux/store';
 
 // pages and layout components
-import BaseLayout from './BaseLayout';
-import Error404 from './pages/Error404';
-import Restaurants from './pages/Restaurants';
+import BaseLayout from './components/layout/BaseLayout';
+import Error404 from './components/pages/Error404';
+import Restaurants from './components/pages/Restaurants';
 
 const App = () => (
   <div className="App">

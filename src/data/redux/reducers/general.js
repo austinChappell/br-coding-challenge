@@ -1,11 +1,13 @@
+import constants from '../actions/constants';
+
 const initialState = {
-  restaurants: [],
+  panelOpen: false,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_RESTAURANTS':
-      return 'something';
+    case constants.TOGGLE_PANEL:
+      return { ...state, panelOpen: !state.panelOpen };
     default:
       return state;
   }

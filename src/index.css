@@ -10,4 +10,46 @@ body {
   margin: 0; }
 
 .NavBar {
-  background-color: #43e895; }
+  background-color: #43e895;
+  color: #ffffff;
+  height: 60px; }
+
+.Panel {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  min-height: calc(100vh - 60px);
+  position: absolute;
+  transition: 500ms;
+  width: 100vw;
+  z-index: 1; }
+
+.Grid {
+  display: flex;
+  flex-wrap: wrap; }
+  .Grid > * {
+    flex-basis: 100%;
+    height: 180px; }
+  @media (min-width: 767px) {
+    .Grid > * {
+      flex-basis: 50%; } }
+
+.GridItem {
+  color: #ffffff;
+  position: relative; }
+  .GridItem .overlay {
+    background: linear-gradient(rgba(42, 42, 42, 0), #2a2a2a);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 50%; }
+  .GridItem .details {
+    padding-left: 12px;
+    position: absolute;
+    bottom: 0; }
+  .GridItem h1 {
+    font-size: 16px; }
+  .GridItem h2 {
+    font-size: 12px; }
+  .GridItem h1, .GridItem h2 {
+    margin: 0 0 6px; }
