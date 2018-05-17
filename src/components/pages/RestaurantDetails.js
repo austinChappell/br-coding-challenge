@@ -20,7 +20,7 @@ const RestaurantDetails = (props) => {
     <div className="RestaurantDetails">
       <MapView
         containerElement={<div style={{ height: '400px' }} />}
-        googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+        googleMapURL={process.env.REACT_APP_MAP_URL}
         lat={lat}
         loadingElement={<div style={{ height: '100%' }} />}
         lng={lng}
