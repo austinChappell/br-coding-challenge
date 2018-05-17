@@ -13,6 +13,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin: 0; }
 
+[role="button"] {
+  cursor: pointer; }
+
 .BaseLayout {
   padding-top: 60px; }
 
@@ -85,6 +88,7 @@ h1, h2, h3, h4, h5, h6 {
       flex-basis: 50%; } }
 
 .GridItem {
+  background-size: cover;
   color: #ffffff;
   position: relative; }
   .GridItem .overlay {
