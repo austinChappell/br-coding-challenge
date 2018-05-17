@@ -16,7 +16,7 @@ exports[`The App Component should render correctly 1`] = `
     }
   >
     <BrowserRouter>
-      <Connect(BaseLayout)>
+      <withRouter(Connect(BaseLayout))>
         <Switch>
           <Route
             component={[Function]}
@@ -25,10 +25,14 @@ exports[`The App Component should render correctly 1`] = `
           />
           <Route
             component={[Function]}
+            path="/map"
+          />
+          <Route
+            component={[Function]}
             path="/*"
           />
         </Switch>
-      </Connect(BaseLayout)>
+      </withRouter(Connect(BaseLayout))>
     </BrowserRouter>
   </Provider>
 </div>
