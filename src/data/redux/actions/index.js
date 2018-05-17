@@ -1,7 +1,8 @@
 import constants from './constants';
 
 export default {
-  togglePanel: () => ({
+  togglePanel: panelView => ({
+    panelView,
     type: constants.TOGGLE_PANEL,
   }),
 

@@ -39,6 +39,7 @@ class NavBar extends Component {
       backButton,
       panelOpen,
       title,
+      togglePanel,
     } = this.props;
 
     const leftIcon = panelOpen ? (
@@ -55,9 +56,18 @@ class NavBar extends Component {
       />
     );
 
+    const noop = () => {};
+
     return (
       <div className="NavBar">
-        <div>{leftIcon}</div>
+        <div
+          onClick={panelOpen ? togglePanel : noop}
+          onKeyDown={panelOpen ? togglePanel : noop}
+          role="button"
+          tabIndex={0}
+        >
+          {leftIcon}
+        </div>
         <h1>{title}</h1>
         <div>{rightIcon}</div>
       </div>
@@ -70,6 +80,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  togglePanel: () => dispatch(actions.togglePanel(null)),
   setRestaurants: restaurants => dispatch(actions.setRestaurants(restaurants)),
 });
 

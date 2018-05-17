@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 const propTypes = {
@@ -9,6 +10,7 @@ const propTypes = {
 const Panel = (props) => {
   const {
     directionFrom,
+    panelView,
     show,
   } = props;
 
@@ -20,11 +22,15 @@ const Panel = (props) => {
       className="Panel"
       style={style}
     >
-      Panel Component
+      {panelView}
     </div>
   );
 };
 
+const mapStateToProps = state => ({
+  panelView: state.generalReducer.panelView,
+});
+
 Panel.propTypes = propTypes;
 
-export default Panel;
+export default connect(mapStateToProps)(Panel);

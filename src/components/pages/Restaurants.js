@@ -6,6 +6,7 @@ import actions from '../../data/redux/actions/';
 
 import Grid from '../shared/Grid';
 import GridItem from '../shared/GridItem';
+import RestaurantDetails from './RestaurantDetails';
 
 const propTypes = {
   restaurants: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -15,7 +16,12 @@ class Restaurants extends Component {
   handleClick = (index) => {
     const { restaurants } = this.props;
     const restaurant = restaurants[index];
-    this.props.togglePanel();
+    const panelView = (
+      <RestaurantDetails
+        restaurant={restaurant}
+      />
+    );
+    this.props.togglePanel(panelView);
     this.props.setRestaurant(restaurant);
   }
 
@@ -49,8 +55,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  togglePanel: () => {
-    dispatch(actions.togglePanel());
+  togglePanel: (panelView) => {
+    dispatch(actions.togglePanel(panelView));
   },
 
   setRestaurant: (restaurant) => {
