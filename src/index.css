@@ -10,9 +10,22 @@ body {
   margin: 0; }
 
 .NavBar {
+  align-items: center;
   background-color: #43e895;
+  box-sizing: border-box;
   color: #ffffff;
-  height: 60px; }
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  padding: 10px; }
+  .NavBar > div {
+    flex-basis: 10%; }
+    .NavBar > div img {
+      height: 30px; }
+  .NavBar h1 {
+    font-size: 17px;
+    flex-grow: 1;
+    text-align: center; }
 
 .Panel {
   background-color: #2a2a2a;

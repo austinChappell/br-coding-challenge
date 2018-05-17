@@ -1,6 +1,7 @@
 import constants from '../actions/constants';
 
 const initialState = {
+  appTitle: 'Lunch Tyme',
   panelOpen: false,
 };
 

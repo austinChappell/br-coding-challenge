@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 import actions from '../../data/redux/actions/';
 import restaurantAPI from '../../data/api/restaurants';
 
+import backArrow from '../../assets/images/ic_webBack@2x.png';
+import mapIcon from '../../assets/images/icon_map@2x.png';
+
 const { getRestaurants } = restaurantAPI;
 
 const propTypes = {
@@ -32,13 +35,39 @@ class NavBar extends Component {
   }
 
   render() {
+    const {
+      backButton,
+      panelOpen,
+      title,
+    } = this.props;
+
+    const leftIcon = panelOpen ? (
+      <img
+        alt="Back Arrow"
+        src={backArrow}
+      />
+    ) : null;
+
+    const rightIcon = (
+      <img
+        alt="Map"
+        src={mapIcon}
+      />
+    );
+
     return (
       <div className="NavBar">
-        NavBar Component
+        <div>{leftIcon}</div>
+        <h1>{title}</h1>
+        <div>{rightIcon}</div>
       </div>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  panelOpen: state.generalReducer.panelOpen,
+});
 
 const mapDispatchToProps = dispatch => ({
   setRestaurants: restaurants => dispatch(actions.setRestaurants(restaurants)),
@@ -46,4 +75,4 @@ const mapDispatchToProps = dispatch => ({
 
 NavBar.propTypes = propTypes;
 
-export default connect(null, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

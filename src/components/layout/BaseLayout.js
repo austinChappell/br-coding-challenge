@@ -6,6 +6,7 @@ import NavBar from './NavBar';
 import Panel from './Panel';
 
 const propTypes = {
+  appTitle: PropTypes.string.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
@@ -15,12 +16,15 @@ const propTypes = {
 
 const BaseLayout = (props) => {
   const {
+    appTitle,
     panelOpen,
   } = props;
 
   return (
     <div className="BaseLayout">
-      <NavBar />
+      <NavBar
+        title={appTitle}
+      />
       <Panel
         directionFrom="left"
         show={panelOpen}
@@ -33,6 +37,7 @@ const BaseLayout = (props) => {
 BaseLayout.propTypes = propTypes;
 
 const mapStateToProps = state => ({
+  appTitle: state.generalReducer.appTitle,
   panelOpen: state.generalReducer.panelOpen,
 });
 

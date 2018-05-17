@@ -23,7 +23,8 @@ const GridItem = (props) => {
       style={style}
       tabIndex={0}
     >
-      {/* overlay used for fade effect */}
+      {/* overlay gradient CSS used for fade effect */}
+      {/* this seems a more performant choice than loading in gradient image */}
       <div className="overlay">
         <div className="details">
           <h1>{title}</h1>

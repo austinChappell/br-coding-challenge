@@ -1,5 +1,21 @@
 .NavBar {
+  align-items: center;
   background-color: $color-primary;
+  box-sizing: border-box;
   color: $color-white;
+  display: flex;
   height: 60px;
+  justify-content: center;
+  padding: 10px;
+  & > div {
+    flex-basis: 10%;
+    img {
+      height: 30px;
+    }
+  }
+  h1 {
+    font-size: 17px;
+    flex-grow: 1;
+    text-align: center;
+  }
 }
