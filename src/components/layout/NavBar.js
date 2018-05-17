@@ -58,20 +58,21 @@ class NavBar extends Component {
     );
 
     const noop = () => {};
+    const clickEvent = panelOpen ? togglePanel : noop;
 
     return (
       <div className="NavBar">
         <div
-          onClick={panelOpen ? togglePanel : noop}
-          onKeyDown={panelOpen ? togglePanel : noop}
+          onClick={clickEvent}
+          onKeyDown={clickEvent}
           role="button"
           tabIndex={0}
         >
           {leftIcon}
         </div>
         <h1
-          onClick={this.props.togglePanel}
-          onKeyDown={this.props.togglePanel}
+          onClick={clickEvent}
+          onKeyDown={clickEvent}
           role="button"
           tabIndex={0}
         >
@@ -80,8 +81,8 @@ class NavBar extends Component {
           </Link>
         </h1>
         <div
-          onClick={this.props.togglePanel}
-          onKeyDown={this.props.togglePanel}
+          onClick={clickEvent}
+          onKeyDown={clickEvent}
           role="button"
           tabIndex={0}
         >
