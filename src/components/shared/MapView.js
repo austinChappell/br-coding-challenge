@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
-import FontAwesome from 'react-fontawesome';
 
 const propTypes = {
   handleInfoClick: PropTypes.func,
@@ -16,8 +15,6 @@ const MapView = withScriptjs(withGoogleMap((props) => {
     center,
     currentLocation,
     handleInfoClick,
-    lat,
-    lng,
     markers,
     toggleOpen,
   } = props;

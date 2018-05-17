@@ -19,11 +19,28 @@ const propTypes = {
 class NavBar extends Component {
   componentDidMount() {
     this.getRestaurants();
+    this.getUserLocation();
   }
 
   // make call to api
   getRestaurants = () => {
     getRestaurants(this.setRestaurants);
+  }
+
+  // get current location of user
+  getUserLocation = () => {
+    navigator.geolocation.getCurrentPosition((position, error) => {
+      if (position) {
+        const { coords } = position;
+        const currentLocation = {
+          lat: coords.latitude,
+          lng: coords.longitude,
+        };
+        this.props.setCurrentLocation(currentLocation);
+      } else {
+        console.error('could not get user location', error);
+      }
+    });
   }
 
   // handle response from api
@@ -37,7 +54,6 @@ class NavBar extends Component {
 
   render() {
     const {
-      backButton,
       panelOpen,
       title,
       togglePanel,
@@ -99,6 +115,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   togglePanel: () => dispatch(actions.togglePanel(null)),
+  setCurrentLocation: currentLocation => dispatch(actions.setCurrentLocation(currentLocation)),
   setRestaurants: restaurants => dispatch(actions.setRestaurants(restaurants)),
 });
 

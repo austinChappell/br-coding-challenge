@@ -6,6 +6,11 @@ export default {
     type: constants.TOGGLE_PANEL,
   }),
 
+  setCurrentLocation: currentLocation => ({
+    currentLocation,
+    type: constants.SET_CURRENT_LOCATION,
+  }),
+
   setRestaurant: restaurant => ({
     restaurant,
     type: constants.SET_RESTAURANT,

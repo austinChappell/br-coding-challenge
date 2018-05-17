@@ -8,12 +8,10 @@ import RestaurantDetails from './RestaurantDetails';
 
 class RestaurantMapView extends Component {
   state = {
-    currentLocation: null,
     markers: [],
   };
 
   componentDidMount() {
-    this.getUserLocation();
     if (this.props.restaurants.length > 0) {
       this.setMarkers();
     }
@@ -23,23 +21,6 @@ class RestaurantMapView extends Component {
     if (prevProps.restaurants !== this.props.restaurants) {
       this.setMarkers();
     }
-  }
-
-  // get current location of user
-  getUserLocation = () => {
-    navigator.geolocation.getCurrentPosition((position, error) => {
-      if (position) {
-        const { coords } = position;
-        const currentLocation = {
-          lat: coords.latitude,
-          lng: coords.longitude,
-        };
-        console.log('CURRENT LOCATION', currentLocation);
-        this.setState({ currentLocation });
-      } else {
-        console.error('could not get user location', error);
-      }
-    });
   }
 
   handleInfoClick = (index) => {
@@ -74,7 +55,8 @@ class RestaurantMapView extends Component {
   }
 
   render() {
-    const { currentLocation, markers } = this.state;
+    const { markers } = this.state;
+    const { currentLocation } = this.props;
 
     return (
       <div className="RestaurantMapView">
@@ -94,6 +76,7 @@ class RestaurantMapView extends Component {
 }
 
 const mapStateToProps = state => ({
+  currentLocation: state.generalReducer.currentLocation,
   restaurants: state.restaurantReducer.restaurants,
 });
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import MapView from '../shared/MapView';
 import DetailView from '../shared/DetailView';
@@ -11,31 +12,10 @@ class RestaurantDetails extends Component {
     const { lat, lng } = location;
 
     this.state = {
-      currentLocation: null,
       markers: [{
         lat, lng, name, open: false,
       }],
     };
-  }
-
-  componentDidMount() {
-    this.getUserLocation();
-  }
-
-  // get current location of user
-  getUserLocation = () => {
-    navigator.geolocation.getCurrentPosition((position, error) => {
-      if (position) {
-        const { coords } = position;
-        const currentLocation = {
-          lat: coords.latitude,
-          lng: coords.longitude,
-        };
-        this.setState({ currentLocation });
-      } else {
-        console.error('could not get user location', error);
-      }
-    });
   }
 
   // hide and show map marker info window
@@ -50,8 +30,8 @@ class RestaurantDetails extends Component {
   }
 
   render() {
-    const { currentLocation, markers } = this.state;
-    const { restaurant } = this.props;
+    const { markers } = this.state;
+    const { currentLocation, restaurant } = this.props;
 
     const {
       category,
@@ -68,9 +48,7 @@ class RestaurantDetails extends Component {
           currentLocation={currentLocation}
           containerElement={<div style={{ height: '400px' }} />}
           googleMapURL={process.env.REACT_APP_MAP_URL}
-          lat={lat}
           loadingElement={<div style={{ height: '100%' }} />}
-          lng={lng}
           markers={markers}
           mapElement={<div style={{ height: '100%' }} />}
           toggleOpen={this.toggleOpen}
@@ -86,4 +64,8 @@ class RestaurantDetails extends Component {
   }
 }
 
-export default RestaurantDetails;
+const mapStateToProps = state => ({
+  currentLocation: state.generalReducer.currentLocation,
+});
+
+export default connect(mapStateToProps)(RestaurantDetails);
