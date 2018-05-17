@@ -2,12 +2,10 @@
   font-family: 'Avenir Next';
   font-style: normal;
   font-weight: 400;
-  src: url("./assets/fonts/AvenirNext-DemiBold.ttf"); }
-
+  src: url('./assets/fonts/AvenirNext-DemiBold.ttf');
+}
 body {
-  color: #2a2a2a;
+  color: $color-black;
   font-family: 'Avenir Next', sans-serif;
-  margin: 0; }
-
-.NavBar {
-  background-color: #43e895; }
+  margin: 0;
+}
