@@ -4,7 +4,6 @@ import { endpoints } from '../constants';
 const { restaurantsEndpoint } = endpoints;
 
 const getRestaurants = (cb) => {
-  console.log('url', restaurantsEndpoint);
   getData(restaurantsEndpoint, cb);
 };
 
