@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 // apis and actions
 import actions from '../../data/redux/actions/';
@@ -68,8 +69,24 @@ class NavBar extends Component {
         >
           {leftIcon}
         </div>
-        <h1>{title}</h1>
-        <div>{rightIcon}</div>
+        <h1
+          onClick={this.props.togglePanel}
+          onKeyDown={this.props.togglePanel}
+          role="button"
+          tabIndex={0}
+        >
+          <Link to="/" href="/">
+            {title}
+          </Link>
+        </h1>
+        <div
+          onClick={this.props.togglePanel}
+          onKeyDown={this.props.togglePanel}
+          role="button"
+          tabIndex={0}
+        >
+          <Link to="/map" href="/map">{rightIcon}</Link>
+        </div>
       </div>
     );
   }

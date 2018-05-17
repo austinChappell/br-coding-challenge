@@ -13,6 +13,7 @@ import store from './data/redux/store';
 import BaseLayout from './components/layout/BaseLayout';
 import Error404 from './components/pages/Error404';
 import Restaurants from './components/pages/Restaurants';
+import RestaurantMapView from './components/pages/RestaurantMapView';
 
 const App = () => (
   <div className="App">
@@ -21,6 +22,7 @@ const App = () => (
         <BaseLayout>
           <Switch>
             <Route exact path="/" component={Restaurants} />
+            <Route path="/map" component={RestaurantMapView} />
             <Route path="/*" component={Error404} />
           </Switch>
         </BaseLayout>

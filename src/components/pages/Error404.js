@@ -7,10 +7,20 @@ const propTypes = {
 
 const Error404 = props => (
   <div className="Error404">
-    <h1>Page not found.</h1>
-    <h2 onClick={() => props.history.goBack()}>
-      Go Back
-    </h2>
+    <div>
+      <h1>Page not found.</h1>
+    </div>
+    <br />
+    <div
+      onClick={() => props.history.goBack()}
+      onKeyDown={() => props.history.goBack()}
+      role="button"
+      tabIndex={0}
+    >
+      <h2>
+        Go Back
+      </h2>
+    </div>
   </div>
 );
 
