@@ -1,9 +1,10 @@
 .Panel {
   background-color: $color-black;
   color: $color-white;
-  min-height: calc(100vh - 60px);
+  height: calc(100vh - 60px);
   position: fixed;
   transition: 500ms;
   width: 100vw;
   z-index: 1;
+  overflow: auto;
 }

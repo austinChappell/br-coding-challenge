@@ -1,4 +1,17 @@
+// third-party libraries
 import React from 'react';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+  category: PropTypes.string.isRequired,
+  contact: PropTypes.objectOf(PropTypes.any),
+  location: PropTypes.objectOf(PropTypes.any).isRequired,
+  name: PropTypes.string.isRequired,
+};
+
+const defaultProps = {
+  contact: null,
+};
 
 const DetailView = (props) => {
   const {
@@ -12,9 +25,13 @@ const DetailView = (props) => {
     formattedAddress,
   } = location;
 
+  // if there is a phone number, set it
   const phone = contact ? contact.formattedPhone : null;
+
+  // if there is a twitter handle, set it
   const twitter = contact ? contact.twitter : null;
 
+  // if phone is present, display it
   const phoneDisplay = phone ?
     (
       <div className="phone">
@@ -22,6 +39,7 @@ const DetailView = (props) => {
       </div>
     ) : null;
 
+  // if twitter handle is present, display it
   const twitterDisplay = twitter ?
     (
       <div className="twitter">
@@ -46,5 +64,8 @@ const DetailView = (props) => {
     </div>
   );
 };
+
+DetailView.propTypes = propTypes;
+DetailView.defaultProps = defaultProps;
 
 export default DetailView;

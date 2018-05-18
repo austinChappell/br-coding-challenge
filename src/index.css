@@ -14,10 +14,14 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0; }
 
 [role="button"] {
-  cursor: pointer; }
+  cursor: pointer;
+  outline: none; }
 
 .info-window {
   color: #2a2a2a; }
+
+.hide {
+  display: none; }
 
 .BaseLayout {
   padding-top: 60px; }
@@ -51,11 +55,12 @@ h1, h2, h3, h4, h5, h6 {
 .Panel {
   background-color: #2a2a2a;
   color: #ffffff;
-  min-height: calc(100vh - 60px);
+  height: calc(100vh - 60px);
   position: fixed;
   transition: 500ms;
   width: 100vw;
-  z-index: 1; }
+  z-index: 1;
+  overflow: auto; }
 
 .DetailView {
   background-color: #ffffff;
@@ -114,6 +119,20 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 12px; }
   .GridItem h1, .GridItem h2 {
     margin: 0 0 6px; }
+
+.Loader {
+  background-color: rgba(42, 42, 42, 0.95);
+  display: flex;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2px; }
 
 .Error404 {
   color: #ffffff; }

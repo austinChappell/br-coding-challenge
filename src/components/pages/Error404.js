@@ -1,3 +1,4 @@
+// third-party libraries
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -5,10 +6,11 @@ const propTypes = {
   history: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
+// this page should only show if user visits bad route
 const Error404 = props => (
   <div className="Error404">
     <div>
-      <h1>Page not found.</h1>
+      <h1>Oh no! Page not found.</h1>
     </div>
     <br />
     <div

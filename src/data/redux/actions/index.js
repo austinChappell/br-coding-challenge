@@ -11,11 +11,6 @@ export default {
     type: constants.SET_CURRENT_LOCATION,
   }),
 
-  setRestaurant: restaurant => ({
-    restaurant,
-    type: constants.SET_RESTAURANT,
-  }),
-
   setRestaurants: restaurants => ({
     restaurants,
     type: constants.SET_RESTAURANTS,

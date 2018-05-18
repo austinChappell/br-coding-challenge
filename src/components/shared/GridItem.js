@@ -1,4 +1,14 @@
+// third-party libraries
 import React from 'react';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+  backgroundImage: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
+  subTitle: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 const GridItem = (props) => {
   const {
@@ -16,7 +26,7 @@ const GridItem = (props) => {
   return (
     <div
       className="GridItem"
-      // only passing back the index to make component more dynamic
+      // only passing back the index to make component more flexible
       onClick={() => handleClick(index)}
       onKeyDown={() => handleClick(index)}
       role="button"
@@ -34,5 +44,7 @@ const GridItem = (props) => {
     </div>
   );
 };
+
+GridItem.propTypes = propTypes;
 
 export default GridItem;

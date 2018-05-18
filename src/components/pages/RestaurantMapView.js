@@ -1,10 +1,23 @@
+// third-party libraries
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import MapView from '../shared/MapView';
+import PropTypes from 'prop-types';
 
+// action creators for reducers
 import actions from '../../data/redux/actions/';
 
+// components
+import MapView from '../shared/MapView';
 import RestaurantDetails from './RestaurantDetails';
+
+const propTypes = {
+  currentLocation: PropTypes.objectOf(PropTypes.number),
+  togglePanel: PropTypes.func.isRequired,
+};
+
+const defaultProps = {
+  currentLocation: null,
+};
 
 class RestaurantMapView extends Component {
   state = {
@@ -13,17 +26,20 @@ class RestaurantMapView extends Component {
 
   componentDidMount() {
     if (this.props.restaurants.length > 0) {
+      // set markers on mount
       this.setMarkers();
     }
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.restaurants !== this.props.restaurants) {
+      // update the markers if restaurant data changed
       this.setMarkers();
     }
   }
 
   handleInfoClick = (index) => {
+    // grab the restaurant clicked and load into RestaurantDetails component
     const { restaurants } = this.props;
     const restaurant = restaurants[index];
     const panelView = (
@@ -31,10 +47,12 @@ class RestaurantMapView extends Component {
         restaurant={restaurant}
       />
     );
+
+    // open the panel
     this.props.togglePanel(panelView);
-    this.props.setRestaurant(restaurant);
   }
 
+  // map markers and put in state, to add open property and easily toggle on and off
   setMarkers = () => {
     const { restaurants } = this.props;
     const markers = restaurants.map((r) => {
@@ -44,6 +62,7 @@ class RestaurantMapView extends Component {
     this.setState({ markers });
   }
 
+  // used to show InfoWindow in map marker
   toggleOpen = (i) => {
     const markers = this.state.markers.map((m, index) => {
       const selected = i === index;
@@ -84,10 +103,9 @@ const mapDispatchToProps = dispatch => ({
   togglePanel: (panelView) => {
     dispatch(actions.togglePanel(panelView));
   },
-
-  setRestaurant: (restaurant) => {
-    dispatch(actions.setRestaurant(restaurant));
-  },
 });
+
+RestaurantMapView.propTypes = propTypes;
+RestaurantMapView.defaultProps = defaultProps;
 
 export default connect(mapStateToProps, mapDispatchToProps)(RestaurantMapView);

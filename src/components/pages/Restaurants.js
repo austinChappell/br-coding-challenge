@@ -1,18 +1,23 @@
+// third-party libraries
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+// action creators for reducers
 import actions from '../../data/redux/actions/';
 
+// components
 import Grid from '../shared/Grid';
 import GridItem from '../shared/GridItem';
 import RestaurantDetails from './RestaurantDetails';
 
 const propTypes = {
   restaurants: PropTypes.arrayOf(PropTypes.object).isRequired,
+  togglePanel: PropTypes.func.isRequired,
 };
 
 class Restaurants extends Component {
+  // select restaurant and load into RestaurantDetails component
   handleClick = (index) => {
     const { restaurants } = this.props;
     const restaurant = restaurants[index];
@@ -21,14 +26,13 @@ class Restaurants extends Component {
         restaurant={restaurant}
       />
     );
+
+    // open panel
     this.props.togglePanel(panelView);
-    this.props.setRestaurant(restaurant);
   }
 
   render() {
-    const {
-      restaurants,
-    } = this.props;
+    const { restaurants } = this.props;
 
     return (
       <div className="Restaurants">
@@ -57,10 +61,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   togglePanel: (panelView) => {
     dispatch(actions.togglePanel(panelView));
-  },
-
-  setRestaurant: (restaurant) => {
-    dispatch(actions.setRestaurant(restaurant));
   },
 });
 

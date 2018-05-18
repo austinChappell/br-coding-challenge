@@ -1,3 +1,4 @@
+// third-party libraries
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -7,13 +8,19 @@ import { Link } from 'react-router-dom';
 import actions from '../../data/redux/actions/';
 import restaurantAPI from '../../data/api/restaurants';
 
+// image assets
 import backArrow from '../../assets/images/ic_webBack@2x.png';
 import mapIcon from '../../assets/images/icon_map@2x.png';
 
+// api to fetch restaurant data
 const { getRestaurants } = restaurantAPI;
 
 const propTypes = {
+  panelOpen: PropTypes.bool.isRequired,
+  setCurrentLocation: PropTypes.func.isRequired,
   setRestaurants: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  togglePanel: PropTypes.func.isRequired,
 };
 
 class NavBar extends Component {
@@ -74,6 +81,8 @@ class NavBar extends Component {
     );
 
     const noop = () => {};
+
+    // if the panel is open, close it when navigating to new route
     const clickEvent = panelOpen ? togglePanel : noop;
 
     return (
@@ -86,13 +95,15 @@ class NavBar extends Component {
         >
           {leftIcon}
         </div>
-        <h1
-          onClick={clickEvent}
-          onKeyDown={clickEvent}
-          role="button"
-          tabIndex={0}
-        >
-          <Link to="/" href="/">
+        <h1>
+          <Link
+            href="/"
+            onClick={clickEvent}
+            onKeyDown={clickEvent}
+            role="button"
+            tabIndex={0}
+            to="/"
+          >
             {title}
           </Link>
         </h1>
@@ -115,6 +126,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   togglePanel: () => dispatch(actions.togglePanel(null)),
+
+  // set user location
   setCurrentLocation: currentLocation => dispatch(actions.setCurrentLocation(currentLocation)),
   setRestaurants: restaurants => dispatch(actions.setRestaurants(restaurants)),
 });
