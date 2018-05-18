@@ -21,7 +21,7 @@
     "eject": "react-scripts eject",
     "sass": "node-sass src/styles/index.scss src/index.css --watch",
     "ci": "start-server-and-test :3000 cypress",
-    "cypress": "(npm bin)/cypress run --record"
+    "cypress": "./node_modules/.bin/cypress run --record"
   },
   "devDependencies": {
     "babel-preset-stage-0": "^6.24.1",
