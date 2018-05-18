@@ -10,4 +10,4 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: $(npm bin)/cypress run --record --key <record_key>
+      - run: $(npm bin)/cypress run --record --key 'violet_jane'
