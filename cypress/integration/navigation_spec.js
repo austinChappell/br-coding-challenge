@@ -3,6 +3,8 @@ const url = Cypress.env('url');
 describe('Navigation', () => {
   it('should go to map route from index', () => {
     cy.visit(url);
+    // wait 15 seconds for api request
+    cy.wait(15000);
     cy.get('.NavBar').find('a').last().click();
     cy.location().should((loc) => {
       expect(loc.href).contains('/map');
