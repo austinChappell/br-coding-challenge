@@ -1,6 +1,7 @@
 {
   "projectId": "ujyoc2",
   "env": {
-    "url": "http://localhost:3000/"
+    "url": "http://localhost:3000/",
+    "CYPRESS_RECORD_KEY": "612e094b-f97c-461c-bee3-f1d479603e8c"
   }
 }
