@@ -82,7 +82,7 @@ class RestaurantMapView extends Component {
         <MapView
           currentLocation={currentLocation}
           containerElement={<div style={{ height: 'calc(100vh - 60px)' }} />}
-          googleMapURL={process.env.REACT_APP_MAP_URL}
+          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCLRMcLlYQAllEw9IbHtFQxbcybzUJvSVc"
           handleInfoClick={this.handleInfoClick}
           loadingElement={<div style={{ height: '100%' }} />}
           markers={markers}

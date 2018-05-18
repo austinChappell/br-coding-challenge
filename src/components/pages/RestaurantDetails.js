@@ -52,7 +52,7 @@ class RestaurantDetails extends Component {
           center={{ lat, lng }}
           currentLocation={currentLocation}
           containerElement={<div style={{ height: '400px' }} />}
-          googleMapURL={process.env.REACT_APP_MAP_URL}
+          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCLRMcLlYQAllEw9IbHtFQxbcybzUJvSVc"
           loadingElement={<div style={{ height: '100%' }} />}
           markers={markers}
           mapElement={<div style={{ height: '100%' }} />}
