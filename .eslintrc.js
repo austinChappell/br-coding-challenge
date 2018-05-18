@@ -1,6 +1,10 @@
 module.exports = {
 	extends: 'airbnb',
 	globals: {
+		cy: true,
+		describe: true,
+		expect: true,
+		it: true,
 		navigator: true,
 	},
 	rules: {
