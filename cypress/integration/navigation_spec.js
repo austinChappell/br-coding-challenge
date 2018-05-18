@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000/';
+const url = Cypress.env('url');
 
 describe('Navigation', () => {
   it('should go to map route from index', () => {
